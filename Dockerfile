@@ -16,7 +16,5 @@ RUN apt-get -qqy --fix-missing update && \
 COPY --chmod=755 init-ssl.sh /docker-entrypoint-initdb.d/init-ssl.sh
 COPY --chmod=755 wrapper.sh /usr/local/bin/wrapper.sh
 
-USER postgres
-
 ENTRYPOINT ["wrapper.sh"]
 CMD ["postgres", "-p", "5432", "-c", "listen_addresses=*"]
